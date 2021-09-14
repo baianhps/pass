@@ -1,4 +1,4 @@
-let names = ['張彥君', '劉愛育', '林君利', '林宛齊', '黃春宏', '葛志穎']
+let names = ['張彥君', '劉愛育', '林君利', '林宛齊', '黃春宏', '周子瑜']
 
 window.onload = function () {
     let n=names[Math.floor(Math.random()*names.length)]
