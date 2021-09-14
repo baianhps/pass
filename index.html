@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="s43_custom_insch.css">
+    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="custom.css">
+    <script src="script.js"></script>
+    <title>Document</title>
+</head>
+
+<body class="fcu ng-scope modal-open">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="accordion">
+
+                    <div accordionitem="" subject="說明" class="ng-isolate-scope">
+                        <div ng-click="ChangeState()" ng-class="{'title': true, 'open': isOpen,'closed':!isOpen}"
+                            class="ng-binding title open">說明</div>
+                        <div ng-show="isOpen" class="inner">
+                            <div ng-transclude="">
+                                <div style="font-size: medium;font-weight:bold" class="ng-binding ng-scope">
+                                    依據110年5月11日教育部通報及本校防疫緊急應變小組會議決議，請配合本校防疫政策，並詳實填答相關問題，每日登入體溫。凡身體不適或發燒者，請假勿到校。</div>
+                                <div style="font-size: medium;" class="ng-binding ng-scope">
+                                    中央流行疫情指揮中心110年9月6日發布全國防疫維持2級警戒，為確保校內衛生安全並維護教職員工生之健康，學校須追蹤旅遊史、每日居家檢疫/自主健康管理/居家隔離，及發燒或有症狀之本校師生人數並回報教育部，請務必確實填答，並隨時更新個人旅遊接觸史及健康狀況，若未詳實填答，造成疫情破口，將依校內獎懲及傳染病防治法追究。
+                                </div>
+                                <ol style="font-size: medium" class="ng-scope">
+                                    <li class="ng-binding">師生若有發燒或身體不適，應盡速戴上口罩就醫，若有疑義，可洽詢本校護理師。</li>
+                                    <li class="ng-binding">您登錄的資料僅作為本校新冠肺炎防疫之用，必要時提供衛生主管機關，並遵守個資法規定。</li>
+                                    <li class="ng-binding">相關問題諮詢電話：<br>
+                                        疾病管制署防疫專線：1922或0800-001922<br>
+                                        本校衛生保健組護理師：(04)2451-7250分機2546、2548<br>
+                                        本校校安中心(24小時)：(04)2451-7250分機2222<br>
+                                        敬祝 平安健康       本校防疫緊急應變小組 敬啟<br>
+                                    </li>
+                                </ol>
+                            </div> <!-- ngIf: showFeedback&&params.isOnline -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12" style="text-align:right"><a class="btn btn-link ng-binding"
+                        style="font-size:medium;display: initial;padding: 0px;"
+                        ng-click="rootCtrl.changeLang()">Language English</a></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+
+                <span class="statusbar">
+                    <div class="title ng-binding">自主健康管理系統（A123456）</div>
+                </span>
+            </div>
+        </div>
+        <!-- ngIf: rootCtrl.control==0 -->
+        <!-- ngIf: rootCtrl.control==4 -->
+
+        <!-- ngIf: !rootCtrl.toOutsch -->
+        <div ng-if="!rootCtrl.toOutsch" class="ng-scope">
+            <!-- ngIf: rootCtrl.control==1||rootCtrl.control==2||rootCtrl.control==3 -->
+            <ng-form name="rootCtrl.infoForm" class="form-inline ng-pristine ng-valid ng-scope"
+                ng-if="rootCtrl.control==1||rootCtrl.control==2||rootCtrl.control==3">
+                <div class="row" style="font-size:medium">
+                    <div class="col-md-12">
+                        <span style="font-weight:bold" class="ng-binding">一、基本資料</span><br>
+
+                        <div style="margin-top:5px" class="ng-binding">
+                            <span style="font-weight:bold" class="ng-binding">姓名：</span>    <span
+                                style="font-weight:bold" class="ng-binding">學號/證號：</span>
+                        </div>
+
+                        <div style="margin-top:5px">
+                            <span style="font-weight:bold" class="ng-binding">科系/單位：</span>
+                            <!-- ngIf: rootCtrl.lang=='cht' --><span ng-if="rootCtrl.lang=='cht'"
+                                class="ng-binding ng-scope"></span><!-- end ngIf: rootCtrl.lang=='cht' -->
+                            <!-- ngIf: rootCtrl.lang=='en' -->
+                        </div>
+
+                        <div style="margin-top:5px">
+                            <span style="font-weight:bold" class="ng-binding">聯絡手機：</span>
+                            <!-- ngIf: rootCtrl.control==1||rootCtrl.control==2 -->
+                            <!-- ngIf: rootCtrl.control==3 --><span ng-if="rootCtrl.control==3"
+                                class="ng-binding ng-scope">
+
+                            </span><!-- end ngIf: rootCtrl.control==3 -->
+                        </div>
+
+                        <div style="margin-top:5px">
+                            <span style="font-weight:bold" class="ng-binding">住宿地址：</span>
+                            <!-- ngIf: rootCtrl.control==1||rootCtrl.control==2 -->
+                            <!-- ngIf: rootCtrl.control==3 --><span ng-if="rootCtrl.control==3"
+                                class="ng-binding ng-scope">
+
+                            </span><!-- end ngIf: rootCtrl.control==3 -->
+                        </div>
+
+
+                        <div class="error ng-binding"
+                            style="coloe:#a94442; font-weight:bold; margin-top:10px;margin-bottom:10px">
+                            國內疫情嚴峻，請務必入校全程佩戴口罩，做好自身健康管理。</div>
+
+                        <div style="margin-top:5px">
+                            <span style="font-weight:bold" class="ng-binding">1. 請問是否已施打過新冠肺炎疫苗？</span>
+                            <!-- ngIf: rootCtrl.control==1||rootCtrl.control==2 -->
+                            <!-- ngIf: rootCtrl.control==3 --><span ng-if="rootCtrl.control==3"
+                                class="ng-binding ng-scope">
+
+                            </span><!-- end ngIf: rootCtrl.control==3 -->
+                        </div>
+
+                        <div style="margin-top:5px">
+                            <span style="font-weight:bold" class="ng-binding">2. 110年8月15日後至今，是否有出國或入境紀錄？</span>
+                            <!-- ngIf: rootCtrl.control==1||rootCtrl.control==2 -->
+                            <!-- ngIf: rootCtrl.control==3 --><span ng-if="rootCtrl.control==3"
+                                class="ng-binding ng-scope">
+                                沒有至其他國家
+                            </span><!-- end ngIf: rootCtrl.control==3 -->
+                        </div>
+
+                        <div style="margin-top:5px;padding-left: 20px">
+                            <!-- ngIf: rootCtrl.master.qn1=='有' -->
+                            <!-- ngIf: rootCtrl.master.qn1=='目前人在國外' -->
+                            <!-- ngIf: rootCtrl.control==1||rootCtrl.control==2 -->
+                            <!-- ngIf: rootCtrl.control==3 --><span ng-if="rootCtrl.control==3" class="ng-scope">
+                                <!-- ngIf: rootCtrl.master.qn1=='有'||rootCtrl.master.qn1=='目前人在國外' -->
+                            </span><!-- end ngIf: rootCtrl.control==3 -->
+                        </div>
+
+                        <div style="margin-top:5px;padding-left: 20px">
+                            <!-- ngIf: rootCtrl.master.qn1=='有' -->
+                            <!-- ngIf: rootCtrl.master.qn1=='目前人在國外' -->
+                            <!-- ngIf: (rootCtrl.control==1||rootCtrl.control==2)&&(rootCtrl.master.qn1=='有'||rootCtrl.master.qn1=='目前人在國外') -->
+                            <!-- ngIf: rootCtrl.control==3&&(rootCtrl.master.qn1=='有'||rootCtrl.master.qn1=='目前人在國外') -->
+                            <!-- ngIf: rootCtrl.master.qn1=='有' -->
+                            <!-- ngIf: rootCtrl.master.qn1=='目前人在國外' -->
+
+                        </div>
+
+                        <div style="margin-top:5px">
+                            <span style="font-weight:bold" class="ng-binding">3. 近期是否有與110年8月15日後自國外返台之親友接觸？</span>
+                            <!-- ngIf: rootCtrl.control==1||rootCtrl.control==2 -->
+                            <!-- ngIf: rootCtrl.control==3 --><span ng-if="rootCtrl.control==3"
+                                class="ng-binding ng-scope">
+                                無
+                            </span><!-- end ngIf: rootCtrl.control==3 -->
+                        </div>
+
+                        <div style="margin-top:5px;padding-left: 20px">
+                            <!-- ngIf: rootCtrl.master.qn2=='有' -->
+                            <!-- ngIf: rootCtrl.control==1||rootCtrl.control==2 -->
+                            <!-- ngIf: rootCtrl.control==3 --><span ng-if="rootCtrl.control==3" class="ng-scope">
+                                <!-- ngIf: rootCtrl.master.qn2=='有' -->
+                            </span><!-- end ngIf: rootCtrl.control==3 -->
+                        </div>
+
+                        <div style="margin-top:5px;padding-left: 20px">
+                            <!-- ngIf: rootCtrl.master.qn2=='有' -->
+                            <!-- ngIf: (rootCtrl.control==1||rootCtrl.control==2)&&rootCtrl.master.qn2=='有' -->
+                            <!-- ngIf: rootCtrl.control==3&&rootCtrl.master.qn2=='有' -->
+                            <!-- ngIf: rootCtrl.master.qn2[0]=='有' -->
+                        </div>
+
+                        <div style="margin-top:5px">
+                            <span style="font-weight:bold" class="ng-binding">4.
+                                110年8月15日迄今，是否曾收到與確診者足跡重疊之通知簡訊？<br><span style="color:rgb(255, 124, 0);"
+                                    class="ng-binding"> 請隨時注意指揮中心公布之確診者足跡處，若於同時間出現該場所，請自主健康監測14天(全天佩戴口罩，不到人潮眾多處)。</span></span>
+                            <!-- ngIf: rootCtrl.control==1||rootCtrl.control==2 -->
+                            <!-- ngIf: rootCtrl.control==3 --><span ng-if="rootCtrl.control==3"
+                                class="ng-binding ng-scope">
+                                無
+                            </span><!-- end ngIf: rootCtrl.control==3 -->
+                        </div>
+
+                        <div style="margin-top:5px;padding-left: 20px">
+                            <!-- ngIf: rootCtrl.master.qn3=='有' -->
+                            <!-- ngIf: rootCtrl.control==1||rootCtrl.control==2 -->
+                            <!-- ngIf: rootCtrl.control==3 --><span ng-if="rootCtrl.control==3" class="ng-scope">
+                                <!-- ngIf: rootCtrl.master.qn3=='有' -->
+                            </span><!-- end ngIf: rootCtrl.control==3 -->
+                            <!-- ngIf: rootCtrl.master.qn3=='有' -->
+                        </div>
+
+
+
+                        <div style="margin-top:5px">
+                            <span style="font-weight:bold" class="ng-binding">5.
+                                110年8月15日迄今，是否曾收到政府機關發送「居家隔離」或「自主健康管理」之通知？</span>
+                            <!-- ngIf: rootCtrl.control==1||rootCtrl.control==2 -->
+                            <!-- ngIf: rootCtrl.control==3 --><span ng-if="rootCtrl.control==3"
+                                class="ng-binding ng-scope">
+                                無
+                            </span><!-- end ngIf: rootCtrl.control==3 -->
+                        </div>
+
+                        <div style="margin-top:5px;padding-left: 20px">
+                            <!-- ngIf: rootCtrl.master.qn4=='有' -->
+                            <!-- ngIf: (rootCtrl.control==1||rootCtrl.control==2)&&rootCtrl.master.qn4=='有' -->
+                            <!-- ngIf: rootCtrl.control==3&&rootCtrl.master.qn4=='有' -->
+                            <!-- ngIf: rootCtrl.master.qn4=='有'&&rootCtrl.master.qn4_kind=='居家隔離通知' -->
+                            <!-- ngIf: rootCtrl.master.qn4=='有'&&rootCtrl.master.qn4_kind=='自主健康管理通知' -->
+                        </div>
+
+
+
+
+
+                        <div style="margin-top:5px">
+                            <span style="font-weight:bold" class="ng-binding">6.
+                                近14天內，是否有喉嚨痛、頭痛、流鼻水、發燒、咳嗽、胸痛、呼吸道不適，失去嗅味覺等症狀？</span>
+                            <!-- ngIf: rootCtrl.control==1||rootCtrl.control==2 -->
+                            <!-- ngIf: rootCtrl.control==3 --><span ng-if="rootCtrl.control==3"
+                                class="ng-binding ng-scope">
+                                否，無上症狀<br>
+                            </span><!-- end ngIf: rootCtrl.control==3 -->
+                            <!-- ngIf: rootCtrl.master.btm_symp=='是，有症狀，已就醫' -->
+                            <!-- ngIf: rootCtrl.master.btm_symp=='其他症狀(噁心、嘔吐、腹痛、腹瀉等)'||rootCtrl.master.btm_symp=='是，有症狀，未就醫' -->
+                        </div>
+
+                        <!-- ngIf: rootCtrl.control==1 -->
+                        <!-- ngIf: rootCtrl.control==2 -->
+                        <!-- ngIf: rootCtrl.control==3 -->
+                        <div style="margin-top:5px; margin-bottom:20px; font-weight:bold" ng-if="rootCtrl.control==3"
+                            class="ng-binding ng-scope">
+                            若上述資料有異動，請隨時主動更新，謝謝您的配合。<input class="btn btn-primary" ng-click="rootCtrl.updatebtn(false)"
+                                type="button" value="編輯基本資料">
+                        </div><!-- end ngIf: rootCtrl.control==3 -->
+                    </div>
+                </div>
+            </ng-form><!-- end ngIf: rootCtrl.control==1||rootCtrl.control==2||rootCtrl.control==3 -->
+            <!-- ngIf: rootCtrl.control==3 -->
+            <ng-form name="rootCtrl.tempForm" ng-if="rootCtrl.control==3"
+                class="ng-valid ng-scope ng-valid-required ng-dirty">
+                <div class="row" style="font-size:medium">
+                    <div class="col-md-9">
+                        <span style="font-weight:bold" class="ng-binding">二、體溫記錄表</span><br>
+                        <span style="margin-top:5px" class="ng-binding">最後更新時間：2021/9/14 上午 11:37:32</span>
+
+
+                        <div id="custombtn" ng-click="rootCtrl.pass(false)"
+                            ng-hide="!rootCtrl.detailList[0].isPass||(rootCtrl.detailList[0].btd_temp08>37.5||rootCtrl.detailList[0].btd_temp17>37.5||rootCtrl.tempForm.$invalid||rootCtrl.isLoading||rootCtrl.detailList[0].invalid||rootCtrl.detailList[0].btd_symptom[0]!=9||rootCtrl.detailList[0].btd_symptom01||rootCtrl.detailList[0].btd_symptom02||rootCtrl.detailList[0].btd_symptom03||rootCtrl.detailList[0].btd_symptom04||rootCtrl.detailList[0].btd_symptom05||rootCtrl.detailList[0].btd_symptom06||rootCtrl.detailList[0].btd_symptom07||rootCtrl.detailList[0].btd_symptom08)"
+                            class="backgcolor_2" style="margin-top:5px">PASS</div>
+
+                        <div id="custombtn" ng-click="rootCtrl.pass(true)"
+                            ng-show="(rootCtrl.detailList[0].isCPass&amp;&amp;rootCtrl.detailList[0].btd_symptom07&amp;&amp;!rootCtrl.detailList[0].btd_symptom01&amp;&amp;!rootCtrl.detailList[0].btd_symptom08)||(rootCtrl.detailList[0].isCPass&amp;&amp;rootCtrl.detailList[0].btd_symptom09)"
+                            class="backgcolor_2 ng-hide" style="margin-top:5px">Conditional PASS</div><br>
+                        <!-- ngIf: rootCtrl.detailList[0].qn1_pass_status==0 -->
+
+                        <div style="font-size:large; background-color:yellow; color:black" class="ng-binding">
+                            1. 即日起，進入校園者均須佩戴口罩。<br>
+                            2. 若有發燒、呼吸道症狀、嗅味覺異常或腹瀉等相關症狀，請假勿入校，並儘速就醫。若有接觸史，請至醫院急診就診並告知接觸史。<br>
+                            3. 請誠實填寫，有症狀護理師將會進行關懷及追蹤，並請確實就醫，並至症狀明顯改善或康復後再入校，確保自己與他人健康。
+                        </div>
+
+                        <table class="table table-bordered" style="text-align:center;margin-top:10px;font-size:medium">
+
+                            <tbody>
+                                <!-- ngRepeat: temp in rootCtrl.detailList -->
+                                <tr ng-repeat-start="temp in rootCtrl.detailList" class="ng-scope">
+                                    <th style="vertical-align:middle; text-align:center; background-color: rgba(128, 128, 128, 0.14);"
+                                        rowspan="5" class="ng-binding">
+                                        09/14
+                                        <!-- ngIf: temp.isToday -->
+                                        <div ng-if="temp.isToday" class="ng-scope">
+                                            <input class="btn btn-primary" ng-click="rootCtrl.saveDetail()"
+                                                style="margin-top:10px; font-size:small; width:40px; padding:5px"
+                                                ng-disabled="rootCtrl.tempForm.$invalid||rootCtrl.isLoading||rootCtrl.detailList[0].invalid"
+                                                type="button" value="儲存">
+                                        </div><!-- end ngIf: temp.isToday -->
+                                    </th>
+
+                                </tr>
+
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);" class="ng-binding">症狀註記
+                                    </th>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <td style="vertical-align:middle; text-align:left">
+                                        <!-- ngIf: temp.isToday -->
+                                        <div ng-if="temp.isToday" class="checkbox ng-scope"
+                                            style="padding-left: 5px !important;"
+                                            ng-class="{error:rootCtrl.detailList[0].invalid}">
+                                            <p class="ng-binding">今日症狀為必填項目，請確實勾選。(可複選)</p>
+                                            <label class="checkbox" style="margin-bottom:5px">
+                                                <input type="checkbox" ng-model="temp.btd_symptom01" name="btd_symptom"
+                                                    ng-change="rootCtrl.changeSym(temp, false)"
+                                                    ng-disabled="temp.btd_symptom09"
+                                                    ng-click="temp.btd_symptom01?temp.btd_symptom09=false:temp.btd_symptom09=temp.btd_symptom09"
+                                                    class="ng-pristine ng-untouched ng-valid ng-empty"
+                                                    disabled="disabled">1.發燒(耳溫≧38/額溫≧37.5度)(Fever over 37.5 ˚C)<br>
+                                                <!-- ngIf: temp.btd_symptom01 -->
+                                            </label>
+                                            <label class="checkbox" style="margin-bottom:5px">
+                                                <input type="checkbox" ng-model="temp.btd_symptom02" name="btd_symptom"
+                                                    ng-change="rootCtrl.changeSym(temp, false)"
+                                                    ng-disabled="temp.btd_symptom09"
+                                                    ng-click="temp.btd_symptom02?temp.btd_symptom09=false:temp.btd_symptom09=temp.btd_symptom09"
+                                                    class="ng-pristine ng-untouched ng-valid ng-empty"
+                                                    disabled="disabled">2.咳嗽(Coughs)、或流鼻水鼻塞(非過敏)(or Running/Stuffy
+                                                Nose)(Not Allergy rhinitis)
+                                            </label>
+                                            <label class="checkbox" style="margin-bottom:5px">
+                                                <input type="checkbox" ng-model="temp.btd_symptom03" name="btd_symptom"
+                                                    ng-change="rootCtrl.changeSym(temp, false)"
+                                                    ng-disabled="temp.btd_symptom09"
+                                                    ng-click="temp.btd_symptom03?temp.btd_symptom09=false:temp.btd_symptom09=temp.btd_symptom09"
+                                                    class="ng-pristine ng-untouched ng-valid ng-empty"
+                                                    disabled="disabled">3.頭痛(headache)、喉嚨痛(sore throat)
+                                            </label>
+                                            <label class="checkbox" style="margin-bottom:5px">
+                                                <input type="checkbox" ng-model="temp.btd_symptom04" name="btd_symptom"
+                                                    ng-change="rootCtrl.changeSym(temp, false)"
+                                                    ng-disabled="temp.btd_symptom09"
+                                                    ng-click="temp.btd_symptom04?temp.btd_symptom09=false:temp.btd_symptom09=temp.btd_symptom09"
+                                                    class="ng-pristine ng-untouched ng-valid ng-empty"
+                                                    disabled="disabled">4.胸痛(Chest Pain)、呼吸急促、呼吸困難(Shortness of Breath)
+                                            </label>
+                                            <label class="checkbox" style="margin-bottom:5px">
+                                                <input type="checkbox" ng-model="temp.btd_symptom05" name="btd_symptom"
+                                                    ng-change="rootCtrl.changeSym(temp, false)"
+                                                    ng-disabled="temp.btd_symptom09"
+                                                    ng-click="temp.btd_symptom05?temp.btd_symptom09=false:temp.btd_symptom09=temp.btd_symptom09"
+                                                    class="ng-pristine ng-untouched ng-valid ng-empty"
+                                                    disabled="disabled">5.全身倦怠、四肢無力(General Weakness)
+                                            </label>
+                                            <label class="checkbox" style="margin-bottom:5px">
+                                                <input type="checkbox" ng-model="temp.btd_symptom06" name="btd_symptom"
+                                                    ng-change="rootCtrl.changeSym(temp, false)"
+                                                    ng-disabled="temp.btd_symptom09"
+                                                    ng-click="temp.btd_symptom06?temp.btd_symptom09=false:temp.btd_symptom09=temp.btd_symptom09"
+                                                    class="ng-pristine ng-untouched ng-valid ng-empty"
+                                                    disabled="disabled">6.不明原因腹瀉(Unexplained diarrhea)
+                                            </label>
+                                            <label class="checkbox" style="margin-bottom:5px">
+                                                <input type="checkbox" ng-model="temp.btd_symptom07" name="btd_symptom"
+                                                    ng-change="rootCtrl.changeSym(temp, false)"
+                                                    ng-disabled="temp.btd_symptom09"
+                                                    ng-click="temp.btd_symptom07?temp.btd_symptom09=false:temp.btd_symptom09=temp.btd_symptom09"
+                                                    class="ng-pristine ng-untouched ng-valid ng-empty"
+                                                    disabled="disabled">7.有上述2-6項症狀，已就醫且症狀已明顯改善。(Have the above 2-6
+                                                symptoms. Have sought medical attention and the symptoms have improved.)
+                                            </label>
+                                            <label class="checkbox" style="margin-bottom:5px">
+                                                <input type="checkbox" ng-model="temp.btd_symptom08" name="btd_symptom"
+                                                    ng-change="rootCtrl.changeSym(temp, false)"
+                                                    ng-disabled="temp.btd_symptom09"
+                                                    ng-click="temp.btd_symptom08?temp.btd_symptom09=false:temp.btd_symptom09=temp.btd_symptom09"
+                                                    class="ng-pristine ng-untouched ng-valid ng-empty"
+                                                    disabled="disabled">8.喪失嗅覺或味覺(Loss of smell or taste)<br>
+                                                <!-- ngIf: temp.btd_symptom08 -->
+                                            </label>
+                                            <label class="checkbox" style="margin-bottom:5px">
+                                                <input type="checkbox" ng-model="temp.btd_symptom09" name="btd_symptom"
+                                                    ng-change="rootCtrl.changeSym(temp, false)"
+                                                    ng-disabled="temp.btd_symptom01||temp.btd_symptom02||temp.btd_symptom03||temp.btd_symptom04||temp.btd_symptom05||temp.btd_symptom06||temp.btd_symptom07||temp.btd_symptom08"
+                                                    ng-click="(temp.btd_symptom01||temp.btd_symptom02||temp.btd_symptom03||temp.btd_symptom04||temp.btd_symptom05||temp.btd_symptom06||temp.btd_symptom07||temp.btd_symptom08)?temp.btd_symptom09=false:temp.btd_symptom09=temp.btd_symptom09"
+                                                    class="ng-pristine ng-untouched ng-valid ng-not-empty">9.無以上任一症狀(None
+                                                of the above)
+                                            </label>
+                                        </div><!-- end ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                    </td>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);"
+                                        ng-class="{error:rootCtrl.tempForm.btd_other.$error.required}"
+                                        class="ng-binding">體溫/其他症狀或就醫醫院/診所名稱</th>
+                                </tr>
+                                <tr ng-repeat-end="" class="ng-scope">
+                                    <td style="vertical-align:middle;text-align:left; ">
+                                        <!-- ngIf: temp.isToday -->
+                                        <div ng-if="temp.isToday" class="ng-scope">
+                                            <!-- ngIf: temp.btd_symptom01 -->
+                                            <!-- ngIf: temp.btd_symptom07 -->
+                                            <textarea type="text" ng-model="temp.btd_other"
+                                                class="form-control ng-pristine ng-untouched ng-valid ng-empty ng-valid-required"
+                                                name="btd_other" ng-required="temp.btd_symptom07||temp.btd_symptom01"
+                                                style="resize: none; overflow: auto; width:100%; padding:10px; min-width:50px"
+                                                rows="3"></textarea>
+                                        </div><!-- end ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                    </td>
+                                </tr><!-- end ngRepeat: temp in rootCtrl.detailList -->
+                                <tr ng-repeat-start="temp in rootCtrl.detailList" class="ng-scope">
+                                    <th style="vertical-align:middle; text-align:center; background-color: rgba(128, 128, 128, 0.14);"
+                                        rowspan="5" class="ng-binding">
+                                        09/13
+                                        <!-- ngIf: temp.isToday -->
+                                    </th>
+
+                                </tr>
+
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);" class="ng-binding">症狀註記
+                                    </th>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <td style="vertical-align:middle; text-align:left">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            9.無以上任一症狀(None of the above)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);"
+                                        ng-class="{error:rootCtrl.tempForm.btd_other.$error.required}"
+                                        class="ng-binding">體溫/其他症狀或就醫醫院/診所名稱</th>
+                                </tr>
+                                <tr ng-repeat-end="" class="ng-scope">
+                                    <td style="vertical-align:middle;text-align:left; ">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            無(N/A)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr><!-- end ngRepeat: temp in rootCtrl.detailList -->
+                                <tr ng-repeat-start="temp in rootCtrl.detailList" class="ng-scope">
+                                    <th style="vertical-align:middle; text-align:center; background-color: rgba(128, 128, 128, 0.14);"
+                                        rowspan="5" class="ng-binding">
+                                        06/21
+                                        <!-- ngIf: temp.isToday -->
+                                    </th>
+
+                                </tr>
+
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);" class="ng-binding">症狀註記
+                                    </th>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <td style="vertical-align:middle; text-align:left">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            8.無以上任一症狀(None of the above)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);"
+                                        ng-class="{error:rootCtrl.tempForm.btd_other.$error.required}"
+                                        class="ng-binding">體溫/其他症狀或就醫醫院/診所名稱</th>
+                                </tr>
+                                <tr ng-repeat-end="" class="ng-scope">
+                                    <td style="vertical-align:middle;text-align:left; ">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            無(N/A)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr><!-- end ngRepeat: temp in rootCtrl.detailList -->
+                                <tr ng-repeat-start="temp in rootCtrl.detailList" class="ng-scope">
+                                    <th style="vertical-align:middle; text-align:center; background-color: rgba(128, 128, 128, 0.14);"
+                                        rowspan="5" class="ng-binding">
+                                        06/04
+                                        <!-- ngIf: temp.isToday -->
+                                    </th>
+
+                                </tr>
+
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);" class="ng-binding">症狀註記
+                                    </th>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <td style="vertical-align:middle; text-align:left">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            8.無以上任一症狀(None of the above)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);"
+                                        ng-class="{error:rootCtrl.tempForm.btd_other.$error.required}"
+                                        class="ng-binding">體溫/其他症狀或就醫醫院/診所名稱</th>
+                                </tr>
+                                <tr ng-repeat-end="" class="ng-scope">
+                                    <td style="vertical-align:middle;text-align:left; ">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            無(N/A)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr><!-- end ngRepeat: temp in rootCtrl.detailList -->
+                                <tr ng-repeat-start="temp in rootCtrl.detailList" class="ng-scope">
+                                    <th style="vertical-align:middle; text-align:center; background-color: rgba(128, 128, 128, 0.14);"
+                                        rowspan="5" class="ng-binding">
+                                        05/31
+                                        <!-- ngIf: temp.isToday -->
+                                    </th>
+
+                                </tr>
+
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);" class="ng-binding">症狀註記
+                                    </th>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <td style="vertical-align:middle; text-align:left">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            8.無以上任一症狀(None of the above)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);"
+                                        ng-class="{error:rootCtrl.tempForm.btd_other.$error.required}"
+                                        class="ng-binding">體溫/其他症狀或就醫醫院/診所名稱</th>
+                                </tr>
+                                <tr ng-repeat-end="" class="ng-scope">
+                                    <td style="vertical-align:middle;text-align:left; ">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            無(N/A)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr><!-- end ngRepeat: temp in rootCtrl.detailList -->
+                                <tr ng-repeat-start="temp in rootCtrl.detailList" class="ng-scope">
+                                    <th style="vertical-align:middle; text-align:center; background-color: rgba(128, 128, 128, 0.14);"
+                                        rowspan="5" class="ng-binding">
+                                        05/25
+                                        <!-- ngIf: temp.isToday -->
+                                    </th>
+
+                                </tr>
+
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);" class="ng-binding">症狀註記
+                                    </th>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <td style="vertical-align:middle; text-align:left">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            8.無以上任一症狀(None of the above)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);"
+                                        ng-class="{error:rootCtrl.tempForm.btd_other.$error.required}"
+                                        class="ng-binding">體溫/其他症狀或就醫醫院/診所名稱</th>
+                                </tr>
+                                <tr ng-repeat-end="" class="ng-scope">
+                                    <td style="vertical-align:middle;text-align:left; ">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            無(N/A)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr><!-- end ngRepeat: temp in rootCtrl.detailList -->
+                                <tr ng-repeat-start="temp in rootCtrl.detailList" class="ng-scope">
+                                    <th style="vertical-align:middle; text-align:center; background-color: rgba(128, 128, 128, 0.14);"
+                                        rowspan="5" class="ng-binding">
+                                        05/22
+                                        <!-- ngIf: temp.isToday -->
+                                    </th>
+
+                                </tr>
+
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);" class="ng-binding">症狀註記
+                                    </th>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <td style="vertical-align:middle; text-align:left">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);"
+                                        ng-class="{error:rootCtrl.tempForm.btd_other.$error.required}"
+                                        class="ng-binding">體溫/其他症狀或就醫醫院/診所名稱</th>
+                                </tr>
+                                <tr ng-repeat-end="" class="ng-scope">
+                                    <td style="vertical-align:middle;text-align:left; ">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            無(N/A)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr><!-- end ngRepeat: temp in rootCtrl.detailList -->
+                                <tr ng-repeat-start="temp in rootCtrl.detailList" class="ng-scope">
+                                    <th style="vertical-align:middle; text-align:center; background-color: rgba(128, 128, 128, 0.14);"
+                                        rowspan="5" class="ng-binding">
+                                        05/21
+                                        <!-- ngIf: temp.isToday -->
+                                    </th>
+
+                                </tr>
+
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);" class="ng-binding">症狀註記
+                                    </th>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <td style="vertical-align:middle; text-align:left">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            8.無以上任一症狀(None of the above)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);"
+                                        ng-class="{error:rootCtrl.tempForm.btd_other.$error.required}"
+                                        class="ng-binding">體溫/其他症狀或就醫醫院/診所名稱</th>
+                                </tr>
+                                <tr ng-repeat-end="" class="ng-scope">
+                                    <td style="vertical-align:middle;text-align:left; ">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            無(N/A)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr><!-- end ngRepeat: temp in rootCtrl.detailList -->
+                                <tr ng-repeat-start="temp in rootCtrl.detailList" class="ng-scope">
+                                    <th style="vertical-align:middle; text-align:center; background-color: rgba(128, 128, 128, 0.14);"
+                                        rowspan="5" class="ng-binding">
+                                        05/20
+                                        <!-- ngIf: temp.isToday -->
+                                    </th>
+
+                                </tr>
+
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);" class="ng-binding">症狀註記
+                                    </th>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <td style="vertical-align:middle; text-align:left">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            8.無以上任一症狀(None of the above)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);"
+                                        ng-class="{error:rootCtrl.tempForm.btd_other.$error.required}"
+                                        class="ng-binding">體溫/其他症狀或就醫醫院/診所名稱</th>
+                                </tr>
+                                <tr ng-repeat-end="" class="ng-scope">
+                                    <td style="vertical-align:middle;text-align:left; ">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            無(N/A)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr><!-- end ngRepeat: temp in rootCtrl.detailList -->
+                                <tr ng-repeat-start="temp in rootCtrl.detailList" class="ng-scope">
+                                    <th style="vertical-align:middle; text-align:center; background-color: rgba(128, 128, 128, 0.14);"
+                                        rowspan="5" class="ng-binding">
+                                        05/19
+                                        <!-- ngIf: temp.isToday -->
+                                    </th>
+
+                                </tr>
+
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);" class="ng-binding">症狀註記
+                                    </th>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <td style="vertical-align:middle; text-align:left">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            8.無以上任一症狀(None of the above)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);"
+                                        ng-class="{error:rootCtrl.tempForm.btd_other.$error.required}"
+                                        class="ng-binding">體溫/其他症狀或就醫醫院/診所名稱</th>
+                                </tr>
+                                <tr ng-repeat-end="" class="ng-scope">
+                                    <td style="vertical-align:middle;text-align:left; ">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            無(N/A)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr><!-- end ngRepeat: temp in rootCtrl.detailList -->
+                                <tr ng-repeat-start="temp in rootCtrl.detailList" class="ng-scope">
+                                    <th style="vertical-align:middle; text-align:center; background-color: rgba(128, 128, 128, 0.14);"
+                                        rowspan="5" class="ng-binding">
+                                        05/18
+                                        <!-- ngIf: temp.isToday -->
+                                    </th>
+
+                                </tr>
+
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);" class="ng-binding">症狀註記
+                                    </th>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <td style="vertical-align:middle; text-align:left">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);"
+                                        ng-class="{error:rootCtrl.tempForm.btd_other.$error.required}"
+                                        class="ng-binding">體溫/其他症狀或就醫醫院/診所名稱</th>
+                                </tr>
+                                <tr ng-repeat-end="" class="ng-scope">
+                                    <td style="vertical-align:middle;text-align:left; ">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            無(N/A)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr><!-- end ngRepeat: temp in rootCtrl.detailList -->
+                                <tr ng-repeat-start="temp in rootCtrl.detailList" class="ng-scope">
+                                    <th style="vertical-align:middle; text-align:center; background-color: rgba(128, 128, 128, 0.14);"
+                                        rowspan="5" class="ng-binding">
+                                        05/17
+                                        <!-- ngIf: temp.isToday -->
+                                    </th>
+
+                                </tr>
+
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);" class="ng-binding">症狀註記
+                                    </th>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <td style="vertical-align:middle; text-align:left">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            8.無以上任一症狀(None of the above)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);"
+                                        ng-class="{error:rootCtrl.tempForm.btd_other.$error.required}"
+                                        class="ng-binding">體溫/其他症狀或就醫醫院/診所名稱</th>
+                                </tr>
+                                <tr ng-repeat-end="" class="ng-scope">
+                                    <td style="vertical-align:middle;text-align:left; ">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            無(N/A)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr><!-- end ngRepeat: temp in rootCtrl.detailList -->
+                                <tr ng-repeat-start="temp in rootCtrl.detailList" class="ng-scope">
+                                    <th style="vertical-align:middle; text-align:center; background-color: rgba(128, 128, 128, 0.14);"
+                                        rowspan="5" class="ng-binding">
+                                        05/16
+                                        <!-- ngIf: temp.isToday -->
+                                    </th>
+
+                                </tr>
+
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);" class="ng-binding">症狀註記
+                                    </th>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <td style="vertical-align:middle; text-align:left">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            8.無以上任一症狀(None of the above)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);"
+                                        ng-class="{error:rootCtrl.tempForm.btd_other.$error.required}"
+                                        class="ng-binding">體溫/其他症狀或就醫醫院/診所名稱</th>
+                                </tr>
+                                <tr ng-repeat-end="" class="ng-scope">
+                                    <td style="vertical-align:middle;text-align:left; ">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            無(N/A)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr><!-- end ngRepeat: temp in rootCtrl.detailList -->
+                                <tr ng-repeat-start="temp in rootCtrl.detailList" class="ng-scope">
+                                    <th style="vertical-align:middle; text-align:center; background-color: rgba(128, 128, 128, 0.14);"
+                                        rowspan="5" class="ng-binding">
+                                        05/15
+                                        <!-- ngIf: temp.isToday -->
+                                    </th>
+
+                                </tr>
+
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);" class="ng-binding">症狀註記
+                                    </th>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <td style="vertical-align:middle; text-align:left">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            8.無以上任一症狀(None of the above)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr>
+                                <tr class="ng-scope">
+                                    <th style="background-color: rgba(128, 128, 128, 0.14);"
+                                        ng-class="{error:rootCtrl.tempForm.btd_other.$error.required}"
+                                        class="ng-binding">體溫/其他症狀或就醫醫院/診所名稱</th>
+                                </tr>
+                                <tr ng-repeat-end="" class="ng-scope">
+                                    <td style="vertical-align:middle;text-align:left; ">
+                                        <!-- ngIf: temp.isToday -->
+                                        <!-- ngIf: !temp.isToday -->
+                                        <div ng-if="!temp.isToday" class="ng-binding ng-scope">
+                                            無(N/A)
+                                        </div><!-- end ngIf: !temp.isToday -->
+                                    </td>
+                                </tr><!-- end ngRepeat: temp in rootCtrl.detailList -->
+                                <tr>
+                                    <td colspan="6" style="text-align:center">
+                                        <input class="btn btn-primary" ng-click="rootCtrl.saveDetail()"
+                                            ng-disabled="rootCtrl.tempForm.$invalid||rootCtrl.isLoading||rootCtrl.detailList[0].invalid"
+                                            type="button" value="儲存體溫記錄">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br>
+                        <br>
+                        <br>
+                    </div>
+                </div>
+            </ng-form><!-- end ngIf: rootCtrl.control==3 -->
+            <!-- ngIf: rootCtrl.master.q1[0]=='5'&&rootCtrl.control==3 -->
+        </div><!-- end ngIf: !rootCtrl.toOutsch -->
+        <!-- ngIf: rootCtrl.toOutsch -->
+    </div>
+    <div class="modal-scrollable ng-scope ng-isolate-scope" ng-style="{'z-index': 1050 + index*10}"
+        modal-window="" window-class="fcu-modal alert-modal" index="0" style="z-index: 1050;">
+        <div class="modal fade fcu-modal alert-modal in" ng-class="{in: animate}"
+            ng-style="{'z-index': 1051 + index*10}" ng-transclude="" ng-click="$event.stopPropagation()"
+            style="z-index: 1051;">
+            <div class="modal-header ng-scope">
+                <h4 class="ng-binding">PASS</h4>
+            </div>
+            <div class="modal-body ng-scope">
+                <!-- ngIf: alertTemplate -->
+                <!-- ngInclude: alertTemplate -->
+                <div ng-if="alertTemplate" ng-include="alertTemplate" class="ng-scope">
+                    <!-- ngIf: !contentModal.isOutsch -->
+                    <div style="display: flex;flex-direction: row;justify-content: center;align-items: center;"
+                        ng-if="!contentModal.isOutsch" class="ng-scope">
+                        <div id="custum-color" class="circle">
+                            <div class="content">
+                                <div id="custum-date" class="date ng-binding"></div>
+                                <div id="custum-name" class="dvtitle ng-binding"></div>
+                                <!-- ngIf: !contentModal.isCondition -->
+                                <div ng-if="!contentModal.isCondition" style="text-align:center" class="ng-scope">
+                                    <div class="dvtitle">自主健康管理</div>
+                                    <div class="pass">PASS</div>
+                                </div><!-- end ngIf: !contentModal.isCondition -->
+                                <!-- ngIf: contentModal.isCondition -->
+                                <div class="footer">逢甲大學關心您</div>
+                            </div>
+                        </div>
+                    </div><!-- end ngIf: !contentModal.isOutsch -->
+
+                    <!-- ngIf: contentModal.isOutsch -->
+                </div><!-- end ngIf: alertTemplate -->
+                <!-- ngIf: !alertTemplate -->
+            </div><!-- ngIf: !!!hideFooter -->
+            <div class="modal-footer ng-scope" ng-if="!!!hideFooter"> <button class="btn btn-primary"
+                    >關閉</button></div><!-- end ngIf: !!!hideFooter --><a title="關閉"
+                class="image-item image-close ng-scope"></a>
+        </div>
+    </div>
+    <div class="modal-backdrop fade ng-scope in" ng-class="{in: animate}" ng-style="{'z-index': 1041 + index*10}"
+         modal-backdrop="" style="z-index: 1041;"></div>
+</body>
+
+</html>
