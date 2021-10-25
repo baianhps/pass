@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="s43_custom_insch.css">
     <link rel="stylesheet" href="custom.css">
     <link rel="stylesheet" href="custom.css">
-    <script src="script.js"></script>
     <title>Document</title>
 </head>
 
@@ -873,15 +872,15 @@
         </div><!-- end ngIf: !rootCtrl.toOutsch -->
         <!-- ngIf: rootCtrl.toOutsch -->
     </div>
-    <div class="modal-scrollable ng-scope ng-isolate-scope" ng-style="{'z-index': 1050 + index*10}"
-        modal-window="" window-class="fcu-modal alert-modal" index="0" style="z-index: 1050;">
+    <div class="modal-scrollable ng-scope ng-isolate-scope" ng-style="{'z-index': 1050 + index*10}" modal-window=""
+        window-class="fcu-modal alert-modal" index="0" style="z-index: 1050;">
         <div class="modal fade fcu-modal alert-modal in" ng-class="{in: animate}"
             ng-style="{'z-index': 1051 + index*10}" ng-transclude="" ng-click="$event.stopPropagation()"
             style="z-index: 1051;">
             <div class="modal-header ng-scope">
                 <h4 class="ng-binding">PASS</h4>
             </div>
-            <div class="modal-body ng-scope">
+            <div class="modal-body ng-scope hidden" id="pass">
                 <!-- ngIf: alertTemplate -->
                 <!-- ngInclude: alertTemplate -->
                 <div ng-if="alertTemplate" ng-include="alertTemplate" class="ng-scope">
@@ -907,13 +906,24 @@
                 </div><!-- end ngIf: alertTemplate -->
                 <!-- ngIf: !alertTemplate -->
             </div><!-- ngIf: !!!hideFooter -->
-            <div class="modal-footer ng-scope" ng-if="!!!hideFooter"> <button class="btn btn-primary"
-                    >關閉</button></div><!-- end ngIf: !!!hideFooter --><a title="關閉"
-                class="image-item image-close ng-scope"></a>
+
+            <div>
+                <div class="modal-body ng-scope" id="name">
+                    <label for="name-input">Name</label>
+                    <input type="text" name="" id="name-input">
+                    <button class="btn btn-success" id="name-ok">確定</button>
+                    <button class="btn btn-primary" id="name-rand">隨機</button>
+                </div>
+            </div>
+            <div class="modal-footer ng-scope" ng-if="!!!hideFooter">
+                <button class="btn btn-primary disabled" id="name-change">改名</button>
+            </div><!-- end ngIf: !!!hideFooter -->
+            <a title="關閉" class="image-item image-close ng-scope"></a>
         </div>
     </div>
     <div class="modal-backdrop fade ng-scope in" ng-class="{in: animate}" ng-style="{'z-index': 1041 + index*10}"
-         modal-backdrop="" style="z-index: 1041;"></div>
+        modal-backdrop="" style="z-index: 1041;"></div>
+    <script src="script.js"></script>
 </body>
 
 </html>
