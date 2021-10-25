@@ -76,7 +76,7 @@ function date() {
 
 function setName(name) {
     document.getElementById('custum-name').innerText = name;
-    document.cookie = 'name=' + name + ';expires=25 2021 16:49:07 GMT+0800 ;';
+    document.cookie = 'name=' + name + ';expires=Oct 25 2031 16:49:07 GMT+0800 ;';
 }
 
 function changeView() {
